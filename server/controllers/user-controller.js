@@ -1,6 +1,7 @@
 const User = require('../models/user-model')
 var bcrypt = require('bcrypt');
 const saltRounds = 4;
+const jwt = require('jsonwebtoken')
 
 module.exports = {
     viewUser (req, res) {
@@ -59,6 +60,33 @@ module.exports = {
             res.status(500).json({
                 message: err
             })
+        })
+    },
+    login (req, res) {
+        User.findOne({
+            where: {
+                email: req.body.email
+            }
+        }).then(userData => {
+            if (userData) {
+                let success = bcrypt.compareSync(req.body.password, userData.password)
+                if (success) {
+                    let token = jwt.sign({_id: userData.id, email: userData.email}, 'secret')
+                    res.status(202).json({
+                        message: 'login success!',
+                        userData,
+                        token
+                    })
+                }else {
+                    res.status(401).json({
+                        message: 'wrong password!'
+                    })
+                }
+            }else {
+                res.status(404).json({
+                    message: 'email not found!'
+                })
+            }
         })
     }
 }

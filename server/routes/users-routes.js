@@ -7,5 +7,6 @@ router
   .post('/add', user.addUser)
   .delete('/delete/:id', user.deleteUser)
   .patch('/update/:id', user.updateUser)
+  // .post('/login', user.login)
 
 module.exports = router;
