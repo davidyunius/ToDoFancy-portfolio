@@ -1,4 +1,6 @@
 const User = require('../models/user-model')
+var bcrypt = require('bcrypt');
+const saltRounds = 4;
 
 module.exports = {
     viewUser (req, res) {
@@ -12,10 +14,12 @@ module.exports = {
         })
     },
     addUser (req, res) {
+        const input = req.body
+        var hash = bcrypt.hashSync(input.password, saltRounds);
         User.create({
-            name: req.body.name,
-            password: req.body.password,
-            email: req.body.email
+            name: input.name,
+            password: hash,
+            email: input.email
         }).then(userData => {
             res.status(201).json({
                 message: 'User data created!',

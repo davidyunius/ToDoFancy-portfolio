@@ -16,7 +16,7 @@ module.exports = {
     addTask (req, res) {
         Task.create({
             status: false,
-            description: String,
+            description: req.body.description,
             createdAt: new Date(),
             updatedAt: new Date()
         }).then(taskData => {
