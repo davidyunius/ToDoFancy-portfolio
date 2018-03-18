@@ -5,7 +5,7 @@ const user = require('../controllers/user-controller')
 router
   .get('/list', user.viewUser)
   .post('/add', user.addUser)
-  .delete('/delete', user.deleteUser)
-  .patch('/update', user.updateUser)
+  .delete('/delete/:id', user.deleteUser)
+  .patch('/update/:id', user.updateUser)
 
 module.exports = router;

@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 const mongoose = require('mongoose')
 
-const url = 'mongodb://localhost:27017/mongooseCRUD'
+const url = 'mongodb://localhost:27017/todofancy'
 mongoose.connect(url, (err) => {
   if (!err) {
     console.log('Connected to database!');
