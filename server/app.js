@@ -6,9 +6,18 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 const mongoose = require('mongoose')
 
+const url = 'mongodb://localhost:27017/mongooseCRUD'
+mongoose.connect(url, (err) => {
+  if (!err) {
+    console.log('Connected to database!');
+  } else {
+    throw new Error(err)
+  }
+});
+
 var index = require('./routes/index');
 var users = require('./routes/users-routes');
-const task = require('./routes/task-routes')
+const task = require('./routes/task-routes');
 
 var app = express();
 

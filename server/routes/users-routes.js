@@ -3,9 +3,9 @@ var router = express.Router();
 const user = require('../controllers/user-controller')
 
 router
-  .get('/list', user)
-  .post('/add', user)
-  .delete('/delete', user)
-  .patch('/update', user)
+  .get('/list', user.viewUser)
+  .post('/add', user.addUser)
+  .delete('/delete', user.deleteUser)
+  .patch('/update', user.updateUser)
 
 module.exports = router;
