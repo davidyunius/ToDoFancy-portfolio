@@ -63,18 +63,15 @@ module.exports = {
         })
     },
     login (req, res) {
+        const input = req.body;
         User.findOne({
-            where: {
-                email: req.body.email
-            }
+            email: input.email
         }).then(userData => {
             if (userData) {
-                let success = bcrypt.compareSync(req.body.password, userData.password)
+                let success = bcrypt.compareSync(input.password, userData.password)
                 if (success) {
                     let token = jwt.sign({_id: userData.id, email: userData.email}, 'secret')
-                    res.status(202).json({
-                        message: 'login success!',
-                        userData,
+                    res.status(202).send({
                         token
                     })
                 }else {
