@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+
+    <title>Task Page - ToDoFancy</title>
+</head>
+
+<body>
+    <div id="app_register">
+        <center>
+            <div>
+                <h3 style="margin-top:50px;">What is your main focus today?</h3>
+            </div>
+            <div style="margin-bottom:10px;">
+                <form action="">
+                    <input class="form-control" style="width:250px; margin-bottom:10px;" type="text" name="add_task" id="add_task" placeholder="new to-do...">
+                    <a class="btn btn-primary btn-sm" href="">Add</a>
+                </form>
+            </div>
+            <div>
+                <h5>Your unfinished task</h5>
+                <table border="1">
+                    <thead>
+                        <th>No.</th>
+                        <th>Status</th>
+                        <th>Thing's to do</th>
+                        <th>Action</th>
+                    </thead>
+                    <tr v-for="el in task">
+                        <td>{{ task.indexOf(el)+1 }}</td>
+                        <td>{{ el.status }}</td>
+                        <td>{{ el.description }}</td>
+                        <td>
+                            <a href="#" class="btn btn-danger btn-sm" onclick="return confirm('are you sure want to delete this task?')">Delete</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </center>
+        <div class="container">
+            
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="./js/register.js"></script>
+</body>
+
+</html>
