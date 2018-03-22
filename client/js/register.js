@@ -6,9 +6,7 @@ var app_register = new Vue ({
             email: "",
             password: ""
         },
-        task: [],
         finished_task: []
-        
     },
     methods: {
         register: function() {
@@ -35,20 +33,6 @@ var app_register = new Vue ({
             }).catch(err => {
                 console.log(err);
             })
-        },
-        viewTask: function () {
-            let self = this;
-            axios.get('http://localhost:3000/task/list')
-            .then(data => {
-                let taskData = data.data.taskData
-                console.log(taskData);
-                self.task = taskData
-            }).catch(err => {
-                console.log(err);
-            })
         }
-    },
-    mounted: function () {
-        this.viewTask()
     }
 })

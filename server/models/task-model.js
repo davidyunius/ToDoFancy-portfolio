@@ -3,9 +3,9 @@ const Schema = mongoose.Schema
 
 const taskSchema = new Schema({
     status: Boolean,
-    description: String,
-    createdAt: { type: Date, default: Date.now },
-    updatedAt: { type: Date, default: Date.now }
+    description: String
+}, {
+    timestamps: true
 })
 
 module.exports = mongoose.model('Task', taskSchema)
