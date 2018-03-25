@@ -22,10 +22,10 @@
                 <div class="header-title">
                     <h3>What is your main focus today?</h3>
                 </div>
-                <input class="form-control" type="text" name="task_input" id="task_input" placeholder="new to-do...">
-                <a class="btn btn-primary btn-sm add" href="">Add</a>
+                <input class="form-control" type="text" placeholder="new to-do...">
+                <a v-on:click="" class="btn btn-primary btn-sm add" href="">Add</a>
                 <div class="task-table">
-                    <viewtask></viewtask>
+                    <viewtask :taskinput="add_task"></viewtask>
                 </div>
             </form>
         </div>

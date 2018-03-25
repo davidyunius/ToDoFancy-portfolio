@@ -2,17 +2,15 @@ Vue.component('viewtask', {
     template: `
     <div>
         <h5 style="color:#999999;">Your unfinished task</h5>
-        <table border="0">
+        <table border="0" style="margin:auto;">
             <thead>
                 <th>No.</th>
-                <th>Date created</th>
                 <th>Thing's to do</th>
                 <th>Action</th>
             </thead>
             <tbody>
                 <tr v-for="el in task">
                     <td>{{ task.indexOf(el) + 1}} </td>
-                    <td>{{ el.status }}</td>
                     <td>{{ el.description }}</td>
                     <a class="btn">
                         <i class="fa fa-times" style="color:red;"></i>
@@ -26,6 +24,7 @@ Vue.component('viewtask', {
             task: []
         }
     },
+    props: ['taskinput'],
     methods: {
         viewTask: function () {
         let self = this;
@@ -37,6 +36,9 @@ Vue.component('viewtask', {
             }).catch(err => {
                 console.log(err);
             })
+        },
+        addTask: function () {
+            let self = this
         }
     },
     created () {
