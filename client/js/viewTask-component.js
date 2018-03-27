@@ -13,7 +13,7 @@ Vue.component('viewtask', {
                     <td>{{ task.indexOf(el) + 1}} </td>
                     <td>{{ el.description }}</td>
                     <a class="btn">
-                        <i class="fa fa-times" style="color:red;"></i>
+                        <i @click="deleteTask(el._id)" class="fa fa-times" style="color:red;"></i>
                     </a>
                 </tr>
             </tbody>
@@ -37,8 +37,11 @@ Vue.component('viewtask', {
                 console.log(err);
             })
         },
-        addTask: function () {
-            let self = this
+        deleteTask: function (id) {
+            let self = this;
+            console.log(id);
+            self.task.splice(self.task.indexOf(id),1)
+            axios.delete(`http://localhost:3000/task/delete/${id}`)
         }
     },
     created () {

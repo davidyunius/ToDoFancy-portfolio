@@ -22,10 +22,9 @@
                 <div class="header-title">
                     <h3>What is your main focus today?</h3>
                 </div>
-                <input class="form-control" type="text" placeholder="new to-do...">
-                <a v-on:click="" class="btn btn-primary btn-sm add" href="">Add</a>
+                <addtask></addtask>
                 <div class="task-table">
-                    <viewtask :taskinput="add_task"></viewtask>
+                    <viewtask></viewtask>
                 </div>
             </form>
         </div>
@@ -36,6 +35,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <script src="./js/viewTask-component.js"></script>
+    <script src="./js/addTask-component.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"

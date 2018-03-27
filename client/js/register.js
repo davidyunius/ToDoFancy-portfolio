@@ -5,8 +5,7 @@ var app_register = new Vue ({
             name: "",
             email: "",
             password: ""
-        },
-        add_task: ""
+        }
     },
     methods: {
         register: function() {
